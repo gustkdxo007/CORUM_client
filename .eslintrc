@@ -32,6 +32,6 @@
     ],
     "no-console": "warn",
     "semi": 2,
-    "no-undef": "wran"
+    "no-undef": "warn"
   }
 }
