@@ -19,6 +19,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
+import Header from '../components/Header';
 
 const Home = () => {
   const classes = useStyles();
@@ -37,28 +38,7 @@ const Home = () => {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Toolbar className={classes.toolbar}>
-          <Button size="small">Home</Button>
-          <Typography
-            component="h2"
-            variant="h5"
-            color="inherit"
-            align="center"
-            noWrap
-            className={classes.toolbarTitle}
-          >
-            CORUM
-          </Typography>
-          <IconButton>
-            <SearchIcon />
-          </IconButton>
-          <Button variant="outlined" size="small">
-            LogIn
-          </Button>
-          <Button variant="outlined" size="small">
-            Sign Up
-          </Button>
-        </Toolbar>
+        <Header />
 
         <main>
           <Paper className={classes.mainFeaturedPost}>
