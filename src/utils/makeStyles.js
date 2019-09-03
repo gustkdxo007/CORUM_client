@@ -6,7 +6,8 @@ const useStyles = makeStyles(theme => ({
     borderBottom: `1px solid ${theme.palette.divider}`
   },
   toolbarTitle: {
-    flex: 1
+    flex: 1,
+    marginRight: theme.spacing(27)
   },
   toolbarSecondary: {
     justifyContent: 'space-between',
@@ -15,6 +16,13 @@ const useStyles = makeStyles(theme => ({
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0
+  },
+  loginButton: {
+    marginLeft: theme.spacing(1)
+  },
+  signUpButton: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(-3)
   },
   mainFeaturedPost: {
     position: 'relative',
@@ -35,14 +43,11 @@ const useStyles = makeStyles(theme => ({
   },
   mainFeaturedPostContent: {
     position: 'relative',
-    padding: theme.spacing(10)
-    // margin: theme.spacing(3)
+    paddingTop: theme.spacing(10),
+    paddingBottom: theme.spacing(10)
   },
   mainGrid: {
     marginTop: theme.spacing(3)
-  },
-  cardGrid: {
-    // marginBottom: theme.spacing(3)
   },
   card: {
     display: 'flex',
@@ -89,13 +94,8 @@ const useStyles = makeStyles(theme => ({
   sidebarSection: {
     marginTop: theme.spacing(3)
   },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    marginTop: theme.spacing(8),
-    padding: theme.spacing(6, 0)
-  },
-  categoryGrid: {
-    marginLeft: theme.spacing(2),
+  asideGrid: {
+    marginLeft: theme.spacing(4),
     marginRight: theme.spacing(4)
   },
   link: {
@@ -106,17 +106,24 @@ const useStyles = makeStyles(theme => ({
     fontSize: '1.2rem',
     fontWeight: 600,
     marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3)
+    marginBottom: theme.spacing(3),
+    borderRadius: '20px'
   },
   tag: {
     width: 170
   },
   tagItem: {
-    color: 'lightgray',
-    background: 'white',
+    color: 'gray',
+    // background: 'white',
     marginTop: theme.spacing(3),
-    boxShadow: `0 3px 3px rgba(0, 0, 0, 0.3)`,
+    // boxShadow: `0 3px 3px rgba(0, 0, 0, 0.3)`,
     borderRadius: '20px'
+  },
+  // footer
+  footer: {
+    backgroundColor: theme.palette.grey[600],
+    marginTop: theme.spacing(4),
+    padding: theme.spacing(2, 0)
   }
 }));
 

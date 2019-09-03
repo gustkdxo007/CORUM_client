@@ -1,17 +1,18 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
 import Link from '@material-ui/core/Link';
 import { Link as RouterLink } from 'react-router-dom';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 import useStyles from '../utils/makeStyles';
-const Category = () => {
+
+const Tag = () => {
   const classes = useStyles();
   return (
     <div>
       <Grid item>
-        <List className={classes.link}>
-          <ListItem button className={classes.linkItem}>
+        <List className={classes.tag}>
+          <ListItem button className={classes.tagItem}>
             <Link
               component={RouterLink}
               to="/development"
@@ -19,10 +20,10 @@ const Category = () => {
               className={classes.toolbarLink}
               underline="none"
             >
-              Development
+              #JavaScript
             </Link>
           </ListItem>
-          <ListItem button className={classes.linkItem}>
+          <ListItem button className={classes.tagItem}>
             <Link
               component={RouterLink}
               to="/project"
@@ -30,10 +31,10 @@ const Category = () => {
               className={classes.toolbarLink}
               underline="none"
             >
-              Co-Project
+              #CodeStates
             </Link>
           </ListItem>
-          <ListItem button className={classes.linkItem}>
+          <ListItem button className={classes.tagItem}>
             <Link
               component={RouterLink}
               to="/newestit"
@@ -41,10 +42,10 @@ const Category = () => {
               className={classes.toolbarLink}
               underline="none"
             >
-              Newest IT
+              #Node
             </Link>
           </ListItem>
-          <ListItem button className={classes.linkItem}>
+          <ListItem button className={classes.tagItem}>
             <Link
               component={RouterLink}
               to="/hottechissue"
@@ -52,10 +53,10 @@ const Category = () => {
               className={classes.toolbarLink}
               underline="none"
             >
-              Hot Tech Issue
+              #React
             </Link>
           </ListItem>
-          <ListItem button className={classes.linkItem}>
+          <ListItem button className={classes.tagItem}>
             <Link
               component={RouterLink}
               to="/mycompany"
@@ -63,7 +64,7 @@ const Category = () => {
               className={classes.toolbarLink}
               underline="none"
             >
-              My Company
+              #Redux
             </Link>
           </ListItem>
         </List>
@@ -72,4 +73,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Tag;
