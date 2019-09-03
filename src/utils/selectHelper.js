@@ -15,7 +15,6 @@ import suggestions from './suggestions';
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    height: 250,
     minWidth: 290,
     marginTop: theme.spacing(3)
   },
@@ -140,7 +139,6 @@ function NoOptionsMessage(props) {
 
 NoOptionsMessage.propTypes = {
   children: PropTypes.node,
-  innerProps: PropTypes.object.isRequired,
   selectProps: PropTypes.object.isRequired
 };
 
@@ -187,13 +185,6 @@ Control.propTypes = {
   innerProps: PropTypes.shape({
     onMouseDown: PropTypes.func.isRequired
   }).isRequired,
-  innerRef: PropTypes.oneOfType([
-    PropTypes.oneOf([null]),
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any.isRequired
-    })
-  ]).isRequired,
   selectProps: PropTypes.object.isRequired
 };
 
@@ -215,21 +206,6 @@ function Option(props) {
 
 Option.propTypes = {
   children: PropTypes.node,
-  innerProps: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    key: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-    onMouseMove: PropTypes.func.isRequired,
-    onMouseOver: PropTypes.func.isRequired,
-    tabIndex: PropTypes.number.isRequired
-  }).isRequired,
-  innerRef: PropTypes.oneOfType([
-    PropTypes.oneOf([null]),
-    PropTypes.func,
-    PropTypes.shape({
-      current: PropTypes.any.isRequired
-    })
-  ]).isRequired,
   isFocused: PropTypes.bool.isRequired,
   isSelected: PropTypes.bool.isRequired
 };
@@ -266,7 +242,6 @@ function SingleValue(props) {
 
 SingleValue.propTypes = {
   children: PropTypes.node,
-  innerProps: PropTypes.any.isRequired,
   selectProps: PropTypes.object.isRequired
 };
 
@@ -322,6 +297,5 @@ function Menu(props) {
 
 Menu.propTypes = {
   children: PropTypes.element.isRequired,
-  innerProps: PropTypes.object.isRequired,
   selectProps: PropTypes.object.isRequired
 };
