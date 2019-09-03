@@ -15,7 +15,7 @@ const Tag = () => {
           <ListItem button className={classes.tagItem}>
             <Link
               component={RouterLink}
-              to="/development"
+              to="/tags"
               color="inherit"
               className={classes.toolbarLink}
               underline="none"
@@ -26,7 +26,7 @@ const Tag = () => {
           <ListItem button className={classes.tagItem}>
             <Link
               component={RouterLink}
-              to="/project"
+              to="/tags"
               color="inherit"
               className={classes.toolbarLink}
               underline="none"
@@ -37,7 +37,7 @@ const Tag = () => {
           <ListItem button className={classes.tagItem}>
             <Link
               component={RouterLink}
-              to="/newestit"
+              to="/tags"
               color="inherit"
               className={classes.toolbarLink}
               underline="none"
@@ -48,7 +48,7 @@ const Tag = () => {
           <ListItem button className={classes.tagItem}>
             <Link
               component={RouterLink}
-              to="/hottechissue"
+              to="/tags"
               color="inherit"
               className={classes.toolbarLink}
               underline="none"
@@ -59,7 +59,7 @@ const Tag = () => {
           <ListItem button className={classes.tagItem}>
             <Link
               component={RouterLink}
-              to="/mycompany"
+              to="/tags"
               color="inherit"
               className={classes.toolbarLink}
               underline="none"

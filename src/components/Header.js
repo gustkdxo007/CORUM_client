@@ -1,17 +1,29 @@
 import React from 'react';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import Input from '@material-ui/core/Input';
+import {
+  Toolbar,
+  IconButton,
+  Typography,
+  Button,
+  Input,
+  Link
+} from '@material-ui/core';
+import { Search, BorderColor } from '@material-ui/icons';
+
+import { Link as RouterLink } from 'react-router-dom';
+// utils
 import useStyles from '../utils/makeStyles';
+
+// main
 const Header = () => {
   const classes = useStyles();
   return (
     <div>
       <Toolbar className={classes.toolbar}>
-        <Button size="small">Home</Button>
+        <Button size="small">
+          <Link component={RouterLink} to="/" color="inherit" underline="none">
+            HOME
+          </Link>
+        </Button>
         <Typography
           component="h2"
           variant="h5"
@@ -24,13 +36,30 @@ const Header = () => {
         </Typography>
         <Input />
         <IconButton>
-          <SearchIcon />
+          <Search />
+        </IconButton>
+        <IconButton>
+          <BorderColor />
         </IconButton>
         <Button className={classes.loginButton} size="small">
-          LogIn
+          <Link
+            component={RouterLink}
+            to="/login"
+            color="inherit"
+            underline="none"
+          >
+            LOGIN
+          </Link>
         </Button>
         <Button className={classes.signUpButton} size="small">
-          Sign Up
+          <Link
+            component={RouterLink}
+            to="/signup"
+            color="inherit"
+            underline="none"
+          >
+            SIGN UP
+          </Link>
         </Button>
       </Toolbar>
     </div>
