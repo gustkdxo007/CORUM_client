@@ -29,8 +29,8 @@ const useStyles = makeStyles(theme => ({
     fontSize: "0.5rem"
   },
   findPW: {
-    paddingLeft: theme.spacing(12),
-    paddingTop: theme.spacing(0.5)
+    marginLeft: theme.spacing(12),
+    padding: theme.spacing(0.5)
   },
   submit: {
     margin: theme.spacing(3, 0, 4)
