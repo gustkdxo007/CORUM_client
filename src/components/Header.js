@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Toolbar,
   IconButton,
@@ -6,12 +6,13 @@ import {
   Button,
   Input,
   Link
-} from '@material-ui/core';
-import { Search, BorderColor } from '@material-ui/icons';
+} from "@material-ui/core";
+import { Search, BorderColor } from "@material-ui/icons";
 
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from "react-router-dom";
 // utils
-import useStyles from '../utils/makeStyles';
+import useStyles from "../utils/makeStyles";
+import LoginBtn from "./LoginBtn";
 
 // main
 const Header = () => {
@@ -41,7 +42,7 @@ const Header = () => {
         <IconButton>
           <BorderColor />
         </IconButton>
-        <Button className={classes.loginButton} size="small">
+        {/* <Button className={classes.loginButton} size="small">
           <Link
             component={RouterLink}
             to="/login"
@@ -50,7 +51,8 @@ const Header = () => {
           >
             LOGIN
           </Link>
-        </Button>
+        </Button> */}
+        <LoginBtn />
         <Button className={classes.signUpButton} size="small">
           <Link
             component={RouterLink}
