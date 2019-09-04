@@ -1,0 +1,25 @@
+.markdown {
+
+  .markdown-textarea {
+    width: 100%;
+    font-size: 1em;
+    margin-bottom: 1rem;
+    padding: 1.8rem 1rem;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: none;
+    min-height: 450px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .markdown-md {
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    min-height: 450px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+}
