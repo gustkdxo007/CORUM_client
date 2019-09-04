@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // ! DO NOT REMOVE MODULES
 // eslint-disable-next-line
 import IconButton from "@material-ui/core/IconButton";
@@ -21,29 +22,35 @@ import Category from "../components/Category";
 import Tag from "../components/Tag";
 import PostList from "../components/PostList";
 import Footer from "../components/Footer";
+import TempPostList from "../components/TempPostList";
 
 // main
 const Home = () => {
   const classes = useStyles();
 
   return (
-    <Fragment>
-      <CssBaseline />
-      <Container maxWidth="lg">
-        <Header />
-        <Banner />
-        <Grid container spacing={8} className={classes.mainGrid}>
-          <Grid item xs={12} md={2} className={classes.asideGrid}>
-            <Category />
-            <Tag />
-          </Grid>
-          <Grid item xs={12} md={9} className={classes.cardGrid}>
-            <PostList />
-          </Grid>
-        </Grid>
-      </Container>
-      <Footer />
-    </Fragment>
+    <Router>
+      <Fragment>
+        <CssBaseline />
+        <Container maxWidth="lg">
+          <Header />
+          <Banner />
+          <Switch>
+            <Grid container spacing={8} className={classes.mainGrid}>
+              <Grid item xs={12} md={2} className={classes.asideGrid}>
+                <Category />
+                <Tag />
+              </Grid>
+              <Grid item xs={12} md={9} className={classes.cardGrid}>
+                <Route exact path="/" component={PostList} />
+                <Route path="/post/development" component={TempPostList} />
+              </Grid>
+            </Grid>
+          </Switch>
+        </Container>
+        <Footer />
+      </Fragment>
+    </Router>
   );
 };
 
