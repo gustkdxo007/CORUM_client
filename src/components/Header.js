@@ -15,7 +15,6 @@ import useStyles from "../utils/makeStyles";
 
 import LoginBtn from "./LoginBtn";
 
-
 // main
 const Header = () => {
   const classes = useStyles();
@@ -41,9 +40,13 @@ const Header = () => {
         <IconButton>
           <Search />
         </IconButton>
-        <IconButton>
-          <BorderColor />
-        </IconButton>
+
+        <Link component={RouterLink} to="/edit">
+          <IconButton>
+            <BorderColor />
+          </IconButton>
+        </Link>
+
         {/* <Button className={classes.loginButton} size="small">
           <Link
             component={RouterLink}
