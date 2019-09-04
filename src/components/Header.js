@@ -12,7 +12,9 @@ import { Search, BorderColor } from "@material-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
 // utils
 import useStyles from "../utils/makeStyles";
+
 import LoginBtn from "./LoginBtn";
+
 
 // main
 const Header = () => {
