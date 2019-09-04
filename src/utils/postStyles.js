@@ -36,8 +36,30 @@ const useStyles = makeStyles(theme => ({
     fontWeight: "600"
   },
   date: {
-    marginTop: theme.spacing(4),
+    marginTop: theme.spacing(2),
     color: "gray"
+  },
+  visit: {
+    marginTop: theme.spacing(2),
+    color: "gray"
+    // marginLeft: theme.spacing(1)
+  },
+  like: {
+    marginTop: theme.spacing(1.5)
+  },
+  title: {
+    margin: theme.spacing(2),
+    borderBottom: "1px solid lightgray",
+    paddingBottom: theme.spacing(2),
+    paddingLeft: theme.spacing(2)
+  },
+  markdown: {
+    border: "1px solid gray",
+    margin: theme.spacing(2),
+    padding: theme.spacing(0, 2)
+  },
+  temp: {
+    // border: "1px solid gray"
   }
 }));
 
