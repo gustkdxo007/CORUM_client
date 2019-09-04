@@ -3,18 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.4.0",
-    "@material-ui/icons": "^4.2.1",
-    "clsx": "^1.0.4",
-    "node-sass": "^4.12.0",
-    "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-markdown": "^4.2.1",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
-    "react-select": "^3.0.4",
-    "react-syntax-highlighter": "^11.0.2"
+    "react-scripts": "3.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,17 +26,6 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "eslint": "^6.3.0",
-    "lint-staged": "^9.2.5",
-    "prettier": "1.18.2"
-  },
-  "lint-staged": {
-    "*.{js, jsx}": [
-      "eslint --fix",
-      "git add"
     ]
   }
 }
