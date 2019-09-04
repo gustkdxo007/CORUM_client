@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Toolbar,
   IconButton,
@@ -6,12 +6,12 @@ import {
   Button,
   Input,
   Link
-} from '@material-ui/core';
-import { Search, BorderColor } from '@material-ui/icons';
+} from "@material-ui/core";
+import { Search, BorderColor } from "@material-ui/icons";
 
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from "react-router-dom";
 // utils
-import useStyles from '../utils/makeStyles';
+import useStyles from "../utils/makeStyles";
 
 // main
 const Header = () => {

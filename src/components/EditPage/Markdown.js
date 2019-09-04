@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
-import ReactMarkdown from 'react-markdown';
-import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-import codeBlock from '../../utils/codeBlock';
-import { Grid } from '@material-ui/core';
-import './Markdown.scss';
+import React, { Component } from "react";
+import ReactMarkdown from "react-markdown";
+import TextareaAutosize from "@material-ui/core/TextareaAutosize";
+import codeBlock from "../../utils/codeBlock";
+import { Grid } from "@material-ui/core";
+import "./Markdown.scss";
 
 class Markdown extends Component {
   state = {
-    content: ''
+    content: ""
   };
   handleChange = e => {
-    console.log(e.target.name);
     this.setState({ [e.target.name]: e.target.value });
   };
   render() {

@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 // TODO: require modules
-import { Container, Grid, CssBaseline, Button } from '@material-ui/core';
+import { Container, Grid, CssBaseline, Button } from "@material-ui/core";
 
 // TODO: require components
-import Markdown from '../components/EditPage/Markdown';
-import TextFields from '../components/EditPage/TextFields';
+import Markdown from "../components/EditPage/Markdown";
+import TextFields from "../components/EditPage/TextFields";
 
 // TODO: require utils
-import useStyles from '../utils/editStyles';
-import IntegrationReactSelect from '../utils/selectHelper';
-import SelectCategory from '../components/EditPage/SelectCategory';
+import useStyles from "../utils/editStyles";
+import IntegrationReactSelect from "../utils/selectHelper";
+import SelectCategory from "../components/EditPage/SelectCategory";
 
 // TODO: Main
 const EditPage = () => {

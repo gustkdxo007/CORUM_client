@@ -1,16 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import Select from 'react-select';
-import { emphasize, makeStyles, useTheme } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import NoSsr from '@material-ui/core/NoSsr';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
-import Chip from '@material-ui/core/Chip';
-import MenuItem from '@material-ui/core/MenuItem';
-import CancelIcon from '@material-ui/icons/Cancel';
-import suggestions from './suggestions';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import clsx from "clsx";
+import Select from "react-select";
+import { emphasize, makeStyles, useTheme } from "@material-ui/core/styles";
+import Typography from "@material-ui/core/Typography";
+import NoSsr from "@material-ui/core/NoSsr";
+import TextField from "@material-ui/core/TextField";
+import Paper from "@material-ui/core/Paper";
+import Chip from "@material-ui/core/Chip";
+import MenuItem from "@material-ui/core/MenuItem";
+import CancelIcon from "@material-ui/icons/Cancel";
+import suggestions from "./suggestions";
 // TODO: Define styles
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,23 +19,23 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3)
   },
   input: {
-    display: 'flex',
+    display: "flex",
     padding: 0,
-    height: 'auto'
+    height: "auto"
   },
   valueContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
+    display: "flex",
+    flexWrap: "wrap",
     flex: 1,
-    alignItems: 'center',
-    overflow: 'hidden'
+    alignItems: "center",
+    overflow: "hidden"
   },
   chip: {
     margin: theme.spacing(0.5, 0.25)
   },
   chipFocused: {
     backgroundColor: emphasize(
-      theme.palette.type === 'light'
+      theme.palette.type === "light"
         ? theme.palette.grey[300]
         : theme.palette.grey[700],
       0.08
@@ -48,13 +48,13 @@ const useStyles = makeStyles(theme => ({
     fontSize: 16
   },
   placeholder: {
-    position: 'absolute',
+    position: "absolute",
     left: 2,
     bottom: 6,
     fontSize: 16
   },
   paper: {
-    position: 'absolute',
+    position: "absolute",
     zIndex: 1,
     marginTop: theme.spacing(1),
     left: 0,
@@ -81,18 +81,18 @@ const components = {
 export default function IntegrationReactSelect() {
   const classes = useStyles();
   const theme = useTheme();
-  const [multi, setMulti] = React.useState(null);
+  const [multi, setMulti] = useState(null);
 
-  function handleChangeMulti(value) {
+  const handleChangeMulti = value => {
     setMulti(value);
-  }
+  };
 
   const selectStyles = {
     input: base => ({
       ...base,
       color: theme.palette.text.primary,
-      '& input': {
-        font: 'inherit'
+      "& input": {
+        font: "inherit"
       }
     })
   };
@@ -105,9 +105,9 @@ export default function IntegrationReactSelect() {
           styles={selectStyles}
           inputId="react-select-multiple"
           TextFieldProps={{
-            label: 'Tags',
+            label: "Tags",
             InputLabelProps: {
-              htmlFor: 'react-select-multiple',
+              htmlFor: "react-select-multiple",
               shrink: true
             }
           }}
