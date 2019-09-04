@@ -13,6 +13,9 @@ import { Link as RouterLink } from "react-router-dom";
 // utils
 import useStyles from "../utils/makeStyles";
 
+import LoginBtn from "./LoginBtn";
+
+
 // main
 const Header = () => {
   const classes = useStyles();
@@ -41,7 +44,7 @@ const Header = () => {
         <IconButton>
           <BorderColor />
         </IconButton>
-        <Button className={classes.loginButton} size="small">
+        {/* <Button className={classes.loginButton} size="small">
           <Link
             component={RouterLink}
             to="/login"
@@ -50,7 +53,8 @@ const Header = () => {
           >
             LOGIN
           </Link>
-        </Button>
+        </Button> */}
+        <LoginBtn />
         <Button className={classes.signUpButton} size="small">
           <Link
             component={RouterLink}
