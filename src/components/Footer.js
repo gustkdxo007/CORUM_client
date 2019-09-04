@@ -1,7 +1,7 @@
-import React from 'react';
-import useStyles from '../utils/makeStyles';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
+import React from "react";
+import useStyles from "../utils/makeStyles";
+import Container from "@material-ui/core/Container";
+import Typography from "@material-ui/core/Typography";
 const Footer = () => {
   const classes = useStyles();
   return (

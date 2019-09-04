@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   // 상단 툴바
@@ -10,8 +10,8 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(27)
   },
   toolbarSecondary: {
-    justifyContent: 'space-between',
-    overflowX: 'auto'
+    justifyContent: "space-between",
+    overflowX: "auto"
   },
   toolbarLink: {
     padding: theme.spacing(1),
@@ -25,24 +25,24 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(-3)
   },
   mainFeaturedPost: {
-    position: 'relative',
+    position: "relative",
     backgroundColor: theme.palette.grey[800],
     color: theme.palette.common.white,
     marginBottom: theme.spacing(4),
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center'
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center"
   },
   overlay: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     bottom: 0,
     right: 0,
     left: 0,
-    backgroundColor: 'rgba(0,0,0,.3)'
+    backgroundColor: "rgba(0,0,0,.3)"
   },
   mainFeaturedPostContent: {
-    position: 'relative',
+    position: "relative",
     paddingTop: theme.spacing(10),
     paddingBottom: theme.spacing(10)
   },
@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3)
   },
   card: {
-    display: 'flex',
+    display: "flex",
     marginBottom: theme.spacing(3)
   },
   cardDetails: {
@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
   },
   cardLeft: {
     paddingRight: theme.spacing(2),
-    borderRight: '1px solid rgba(0, 0, 0, 0.05)'
+    borderRight: "1px solid rgba(0, 0, 0, 0.05)"
   },
   cardMedia: {
     width: 100,
@@ -68,19 +68,19 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(2)
   },
   cardUser: {
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(2),
     padding: theme.spacing(0.2),
-    border: 'none',
-    borderRadius: '8px',
-    background: 'rgba(0, 0, 0, 0.05)'
+    border: "none",
+    borderRadius: "8px",
+    background: "rgba(0, 0, 0, 0.05)"
   },
   cardContent: {
     margin: theme.spacing(2)
   },
   cardTitle: {
-    fontSize: '2rem',
+    fontSize: "2rem",
     paddingBottom: theme.spacing(3)
   },
   markdown: {
@@ -103,21 +103,21 @@ const useStyles = makeStyles(theme => ({
     borderBottom: `1px solid ${theme.palette.divider}`
   },
   linkItem: {
-    fontSize: '1.2rem',
+    fontSize: "1.2rem",
     fontWeight: 600,
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3),
-    borderRadius: '20px'
+    borderRadius: "20px"
   },
   tag: {
     width: 170
   },
   tagItem: {
-    color: 'gray',
+    color: "gray",
     // background: 'white',
     marginTop: theme.spacing(3),
     // boxShadow: `0 3px 3px rgba(0, 0, 0, 0.3)`,
-    borderRadius: '20px'
+    borderRadius: "20px"
   },
   // footer
   footer: {
