@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Home from "./Pages/Home";
 import EditPage from "./Pages/EditPage";
 import PostPage from "./Pages/PostPage";
@@ -7,14 +7,14 @@ import MyPage from "./Pages/MyPage";
 
 const App = () => {
   return (
-    <Router>
+    <div>
+      <Route exact path="/" component={Home} />
       <Switch>
-        <Route exact path="/mypage" component={MyPage} />
-        <Route exact path="/post/:number" component={PostPage} />
-        <Route path="/" component={Home} />
-        <Route exact path="/edit" component={EditPage} />
+        <Route path="/mypage" component={MyPage} />
+        <Route path="/edit" component={EditPage} />
+        <Route path="/postpage/:id" component={PostPage} />
       </Switch>
-    </Router>
+    </div>
   );
 };
 

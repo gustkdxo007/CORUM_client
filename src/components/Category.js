@@ -14,7 +14,7 @@ const Category = () => {
           <ListItem button className={classes.linkItem}>
             <Link
               component={RouterLink}
-              to="/post/development"
+              to="/category/development"
               color="inherit"
               className={classes.toolbarLink}
               underline="none"
@@ -25,7 +25,7 @@ const Category = () => {
           <ListItem button className={classes.linkItem}>
             <Link
               component={RouterLink}
-              to="/post/project"
+              to="/category/project"
               color="inherit"
               className={classes.toolbarLink}
               underline="none"
@@ -36,7 +36,7 @@ const Category = () => {
           <ListItem button className={classes.linkItem}>
             <Link
               component={RouterLink}
-              to="/post/newestit"
+              to="/category/newestit"
               color="inherit"
               className={classes.toolbarLink}
               underline="none"
@@ -47,7 +47,7 @@ const Category = () => {
           <ListItem button className={classes.linkItem}>
             <Link
               component={RouterLink}
-              to="/post/hottechissue"
+              to="/category/hottechissue"
               color="inherit"
               className={classes.toolbarLink}
               underline="none"
@@ -58,7 +58,7 @@ const Category = () => {
           <ListItem button className={classes.linkItem}>
             <Link
               component={RouterLink}
-              to="/post/mycompany"
+              to="/category/mycompany"
               color="inherit"
               className={classes.toolbarLink}
               underline="none"

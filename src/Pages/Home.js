@@ -29,28 +29,32 @@ const Home = () => {
   const classes = useStyles();
 
   return (
-    <Router>
-      <Fragment>
-        <CssBaseline />
-        <Container maxWidth="lg">
-          <Header />
+    <Fragment>
+      <CssBaseline />
+      <Container maxWidth="lg">
+        <Header />
+        <Router>
           <Banner />
-          <Switch>
-            <Grid container spacing={8} className={classes.mainGrid}>
-              <Grid item xs={12} md={2} className={classes.asideGrid}>
-                <Category />
-                <Tag />
-              </Grid>
-              <Grid item xs={12} md={9} className={classes.cardGrid}>
-                <Route exact path="/" component={PostList} />
-                <Route path="/post/development" component={TempPostList} />
-              </Grid>
+          <Grid container spacing={8} className={classes.mainGrid}>
+            <Grid item xs={12} md={2} className={classes.asideGrid}>
+              <Category />
+              <Tag />
             </Grid>
-          </Switch>
-        </Container>
-        <Footer />
-      </Fragment>
-    </Router>
+            <Grid item xs={12} md={9} className={classes.cardGrid}>
+              <Route exact path="/" component={PostList} />
+              <Switch>
+                <Route
+                  path="/category/:categoryname"
+                  component={TempPostList}
+                />
+                <Route path="/tags/:tagname" component={TempPostList} />
+              </Switch>
+            </Grid>
+          </Grid>
+        </Router>
+      </Container>
+      <Footer />
+    </Fragment>
   );
 };
 
