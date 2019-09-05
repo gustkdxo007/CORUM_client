@@ -22,8 +22,24 @@ const Header = () => {
     <div>
       <Toolbar className={classes.toolbar}>
         <Button size="small">
-          <Link component={RouterLink} to="/" color="inherit" underline="none">
+          <Link
+            component={RouterLink}
+            exact
+            to="/"
+            color="inherit"
+            underline="none"
+          >
             HOME
+          </Link>
+        </Button>
+        <Button size="small">
+          <Link
+            component={RouterLink}
+            to="/mypage"
+            color="inherit"
+            underline="none"
+          >
+            마이페이지
           </Link>
         </Button>
         <Typography
@@ -47,16 +63,6 @@ const Header = () => {
           </IconButton>
         </Link>
 
-        {/* <Button className={classes.loginButton} size="small">
-          <Link
-            component={RouterLink}
-            to="/login"
-            color="inherit"
-            underline="none"
-          >
-            LOGIN
-          </Link>
-        </Button> */}
         <LoginBtn />
         <Button className={classes.signUpButton} size="small">
           <Link

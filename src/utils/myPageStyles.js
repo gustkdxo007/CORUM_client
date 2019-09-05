@@ -38,7 +38,6 @@ const useStyles = makeStyles(theme => ({
     fontSize: "1.3em",
     margin: theme.spacing(2),
     padding: theme.spacing(2),
-    border: "none",
     borderRadius: "10px",
     outline: "none",
     resize: "none",

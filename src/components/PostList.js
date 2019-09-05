@@ -55,7 +55,7 @@ const PostList = () => {
     <div>
       {featuredPosts.map(post => (
         <Grid item key={post.title} xs={12} md={12}>
-          <CardActionArea component="a" href="#">
+          <CardActionArea component="a" href="/postpage/1">
             <Card className={classes.card}>
               <Hidden xsDown>
                 <Grid item className={classes.cardLeft}>
