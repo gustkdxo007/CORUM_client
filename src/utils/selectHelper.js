@@ -82,7 +82,7 @@ export default function IntegrationReactSelect() {
   const classes = useStyles();
   const theme = useTheme();
   const [multi, setMulti] = useState(null);
-
+  
   const handleChangeMulti = value => {
     setMulti(value);
   };
