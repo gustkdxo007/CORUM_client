@@ -7,54 +7,21 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Hidden from "@material-ui/core/Hidden";
 import Typography from "@material-ui/core/Typography";
 import useStyles from "../utils/makeStyles";
-const PostList = () => {
+
+// createdAt: "2019-09-06T01:34:49.000Z"
+// id: 2
+// like_count: 0
+// subTitle: "말씀을 드려볼까 합니다."
+// title: "코드스테이츠 구일모입니다."
+// updatedAt: "2019-09-06T01:34:57.000Z"
+// user: {nickname: "dddd", userImage: null}
+// visit_count: 1
+const PostList = ({ postData }) => {
   const classes = useStyles();
-  const featuredPosts = [
-    {
-      user: "구일모",
-      title: "CODESTATES DEVELOPER KOO IL MO",
-      subTitle: "안녕하세요 코드스테이츠 DJ를 담당하는 구일모입니다.",
-      date: "2019-09-01",
-      visit: 30,
-      likeCount: 50
-    },
-    {
-      user: "구일모",
-      title: "CODESTATES DEVELOPER KOO IL MO",
-      subTitle: "안녕하세요 코드스테이츠 DJ를 담당하는 구일모입니다.",
-      date: "2019-09-01",
-      visit: 30,
-      likeCount: 50
-    },
-    {
-      user: "구일모",
-      title: "CODESTATES DEVELOPER KOO IL MO",
-      subTitle: "안녕하세요 코드스테이츠 DJ를 담당하는 구일모입니다.",
-      date: "2019-09-01",
-      visit: 30,
-      likeCount: 50
-    },
-    {
-      user: "구일모",
-      title: "CODESTATES DEVELOPER KOO IL MO",
-      subTitle: "안녕하세요 코드스테이츠 DJ를 담당하는 구일모입니다.",
-      date: "2019-09-01",
-      visit: 30,
-      likeCount: 50
-    },
-    {
-      user: "구일모",
-      title: "CODESTATES DEVELOPER KOO IL MO",
-      subTitle: "안녕하세요 코드스테이츠 DJ를 담당하는 구일모입니다.",
-      date: "2019-09-01",
-      visit: 30,
-      likeCount: 50
-    }
-  ];
   return (
     <div>
-      {featuredPosts.map(post => (
-        <Grid item key={post.title} xs={12} md={12}>
+      {postData.map(post => (
+        <Grid item key={post.id} xs={12} md={12}>
           <CardActionArea component="a" href="/postpage/1">
             <Card className={classes.card}>
               <Hidden xsDown>
@@ -68,7 +35,7 @@ const PostList = () => {
                   </Grid>
                   <Grid item>
                     <Typography className={classes.cardUser}>
-                      {post.user}
+                      {post.user.nickname}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -84,7 +51,7 @@ const PostList = () => {
                     display="block"
                     align="right"
                   >
-                    조회수 {post.visit} 좋아요 {post.likeCount}
+                    조회수 {post.visit_count} 좋아요 {post.like_count}
                   </Typography>
 
                   <Typography variant="subtitle1" paragraph>
@@ -92,7 +59,7 @@ const PostList = () => {
                   </Typography>
 
                   <Typography variant="subtitle2" color="textSecondary">
-                    {post.date}
+                    {post.createdAt.slice(0, 10)}
                   </Typography>
                 </CardContent>
               </div>

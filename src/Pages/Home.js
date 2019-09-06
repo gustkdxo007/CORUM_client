@@ -1,17 +1,18 @@
 import React, { Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import useRequest from "../hooks/useRequest";
 // ! DO NOT REMOVE MODULES
-// eslint-disable-next-line
-import IconButton from "@material-ui/core/IconButton";
-// eslint-disable-next-line
+/* eslint-disable */
+import {
+  IconButton,
+  Typography,
+  Paper,
+  CssBaseline,
+  Grid,
+  Container
+} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-// eslint-disable-next-line
-import Paper from "@material-ui/core/Paper";
-// eslint-disable-next-line
-import Typography from "@material-ui/core/Typography";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from "@material-ui/core/Grid";
-import Container from "@material-ui/core/Container";
+
 // utils
 import useStyles from "../utils/makeStyles";
 
@@ -27,7 +28,28 @@ import TempPostList from "../components/TempPostList";
 // main
 const Home = () => {
   const classes = useStyles();
-
+  const [postData, loading, error] = useRequest(
+    "http://localhost:3000/getAllPosts"
+  );
+  // TODO: loading
+  if (loading) {
+    return (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+  // TODO: error
+  if (error) {
+    return (
+      <div>
+        <h1>ERROR 404</h1>
+      </div>
+    );
+  }
+  // TODO: when postData is null, return null
+  if (!postData) return null;
+  console.log(postData.data);
   return (
     <Fragment>
       <CssBaseline />
@@ -41,7 +63,11 @@ const Home = () => {
               <Tag />
             </Grid>
             <Grid item xs={12} md={9} className={classes.cardGrid}>
-              <Route exact path="/" component={PostList} />
+              <Route
+                exact
+                path="/"
+                render={() => <PostList postData={postData.data} />}
+              />
               <Switch>
                 <Route
                   path="/category/:categoryname"

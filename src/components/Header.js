@@ -9,28 +9,21 @@ import {
 } from "@material-ui/core";
 import { Search, BorderColor } from "@material-ui/icons";
 
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, withRouter } from "react-router-dom";
 // utils
 import useStyles from "../utils/makeStyles";
 
 import LoginBtn from "./LoginBtn";
 
 // main
-const Header = () => {
+const Header = ({ history }) => {
+  console.log(history);
   const classes = useStyles();
   return (
     <div>
       <Toolbar className={classes.toolbar}>
-        <Button size="small">
-          <Link
-            component={RouterLink}
-            exact
-            to="/"
-            color="inherit"
-            underline="none"
-          >
-            HOME
-          </Link>
+        <Button size="small" onClick={() => history.push("/")}>
+          HOME
         </Button>
         <Button size="small">
           <Link
@@ -79,4 +72,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);
