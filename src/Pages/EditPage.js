@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // TODO: require modules
 import { Container, Grid, CssBaseline, Button } from "@material-ui/core";
 
@@ -13,7 +13,39 @@ import SelectCategory from "../components/EditPage/SelectCategory";
 
 // TODO: Main
 const EditPage = () => {
+  const [postData, setPostData] = useState({
+    title: "",
+    subTitle: "",
+    contents: "",
+    category: "",
+    poster: ""
+  });
+  const [categoryName, setCategoryName] = useState({
+    category: ""
+  });
+
+  const { title, subTitle, contents, category, poster } = postData;
   const classes = useStyles();
+  const handleTitle = e => {
+    const { name, value } = e.target;
+    setPostData(oldData => ({
+      ...oldData,
+      [name]: value
+    }));
+    console.log(postData);
+  };
+  const handleCategory = e => {
+    const { name, value } = e.target;
+    setPostData(oldData => ({
+      ...oldData,
+      [name]: value
+    }));
+    setCategoryName(oldCategory => ({
+      ...oldCategory,
+      [name]: value
+    }));
+    console.log(categoryName);
+  };
   return (
     <div className={classes.root}>
       <Container maxWidth="lg">
@@ -22,7 +54,7 @@ const EditPage = () => {
           <Grid item xs={12} md={9}>
             <form className={classes.form} noValidate>
               {/* Title */}
-              <TextFields />
+              <TextFields handleTitle={e => handleTitle(e)} />
               {/* Tag Select */}
               <IntegrationReactSelect />
             </form>
@@ -49,7 +81,10 @@ const EditPage = () => {
                 저장하기
               </Button>
               {/* 카테고리 Select */}
-              <SelectCategory />
+              <SelectCategory
+                categoryName={categoryName}
+                handleCategory={e => handleCategory(e)}
+              />
             </form>
           </Grid>
         </Grid>
