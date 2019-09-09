@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
 // TODO: require modules
 import { Container, Grid, CssBaseline, Button } from "@material-ui/core";
 
@@ -12,13 +14,13 @@ import IntegrationReactSelect from "../utils/selectHelper";
 import SelectCategory from "../components/EditPage/SelectCategory";
 
 // TODO: Main
-const EditPage = () => {
+const EditPage = ({ history }) => {
   const [postData, setPostData] = useState({
     title: "",
     subTitle: "",
     contents: "",
     category: "",
-    poster: ""
+    poster: "codestates"
   });
   const [categoryName, setCategoryName] = useState({
     category: ""
@@ -58,6 +60,11 @@ const EditPage = () => {
     console.log(categoryName);
   };
 
+  const handlePost = async () => {
+    await axios.post("http://localhost:3001/createPostHashtag", postData);
+    history.push("/");
+  };
+
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -81,6 +88,7 @@ const EditPage = () => {
                 color="primary"
                 className={classes.submitButton}
                 fullWidth
+                onClick={handlePost}
               >
                 작성하기
               </Button>
