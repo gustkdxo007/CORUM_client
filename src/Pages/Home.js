@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import useRequest from "../hooks/useRequest";
 // ! DO NOT REMOVE MODULES
@@ -24,11 +24,15 @@ import Tag from "../components/Tag";
 import PostList from "../components/PostList";
 import Footer from "../components/Footer";
 import TempPostList from "../components/TempPostList";
+import axios from "axios";
 
 // main
 const Home = ({ match }) => {
+  const [userInfo, setUserInfo] = useState({
+    info: "", // userId
+    success: false
+  });
   const classes = useStyles();
-  // console.log("start", match);
   const url = () => {
     if (match.path === "/") {
       return "readAllPostList";
@@ -38,8 +42,21 @@ const Home = ({ match }) => {
     }
   };
   const [postData, loading, error] = useRequest(
-    `http://localhost:3000/${url()}`
+    `http://localhost:3001/${url()}`
   );
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let token = await localStorage.getItem("Authorization");
+      let currentUser = await axios.get(
+        "http://localhost:3001/api/auth/check");
+      console.log(token);
+      console.log(currentUser);
+      setUserInfo({ ...userInfo, currentUser });
+      console.log(userInfo);
+    };
+    fetchData();
+  }, []);
   // TODO: loading
   if (loading) {
     return (
