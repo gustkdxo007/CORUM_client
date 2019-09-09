@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -12,7 +12,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import useStyles from "../utils/loginStyles";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, Redirect } from "react-router-dom";
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -28,8 +29,32 @@ function Copyright() {
 }
 
 const Login = () => {
-  const classes = useStyles();
+  const [inputs, setInputs] = useState({
+    userId: "",
+    password: ""
+  });
 
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value
+    });
+    console.log(inputs);
+  };
+
+  const handleLogin = async e => {
+    let loginData = await axios.post(
+      "http://localhost:3001/api/auth/login",
+      inputs
+    );
+    if (!loginData.data.token) return;
+
+    localStorage.setItem("Authorization", loginData.data.token);
+    return <Redirect to="/" />;
+  };
+
+  const classes = useStyles();
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -46,18 +71,19 @@ const Login = () => {
             </Typography>
           </Grid>
         </Grid>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onSubmit={handleLogin} noValidate>
           <TextField
             variant="standard"
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            type="email"
+            id="userId"
+            label="User ID"
+            name="userId"
+            autoComplete="userId"
+            type="userId"
             autoFocus
+            onChange={handleChange}
           />
           <TextField
             variant="standard"
@@ -69,6 +95,7 @@ const Login = () => {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={handleChange}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}

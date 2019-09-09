@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { TextField } from "@material-ui/core";
-const TextFields = () => {
+const TextFields = ({ handleTitle }) => {
   return (
-    <div>
+    <Fragment>
       <TextField
         variant="standard"
         margin="normal"
@@ -11,6 +11,7 @@ const TextFields = () => {
         id="title"
         name="title"
         label="Title"
+        onChange={handleTitle}
         autoFocus
       />
       {/* Subtitle */}
@@ -22,9 +23,10 @@ const TextFields = () => {
         id="subTitle"
         name="subTitle"
         label="SubTitle"
+        onChange={handleTitle}
         type="subTitle"
       />
-    </div>
+    </Fragment>
   );
 };
 

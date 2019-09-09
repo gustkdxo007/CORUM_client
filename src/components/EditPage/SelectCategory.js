@@ -9,12 +9,10 @@ import {
 
 // TODO: require utils
 import useStyles from "../../utils/editStyles";
-const SelectCategory = () => {
+const SelectCategory = ({ categoryName, handleCategory }) => {
   const classes = useStyles();
   // TODO: category hooks
-  const [values, setValues] = useState({
-    category: ""
-  });
+
   // TODO: category select 윤곽선 넓이 조절
   const [labelWidth, setLabelWidth] = useState(0);
   const inputLabel = useRef(null);
@@ -22,13 +20,6 @@ const SelectCategory = () => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
 
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setValues(oldValues => ({
-      ...oldValues,
-      [name]: value
-    }));
-  };
   return (
     <div>
       <FormControl fullWidth variant="outlined" className={classes.formControl}>
@@ -36,8 +27,8 @@ const SelectCategory = () => {
           Category
         </InputLabel>
         <Select
-          value={values.category}
-          onChange={handleChange}
+          value={categoryName.category}
+          onChange={handleCategory}
           input={<OutlinedInput labelWidth={labelWidth} name="category" />}
         >
           <MenuItem value={"Developer"}>Developer</MenuItem>
