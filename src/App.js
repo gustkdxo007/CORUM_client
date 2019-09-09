@@ -12,7 +12,8 @@ const App = () => {
       <Switch>
         <Route path="/mypage" component={MyPage} />
         <Route path="/edit" component={EditPage} />
-        <Route path="/postpage/:id" component={PostPage} />
+        <Route exact path="/category/:categoryname" component={Home} />
+        <Route path="/category/post/:id" component={PostPage} />
       </Switch>
     </div>
   );

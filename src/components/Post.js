@@ -12,9 +12,39 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import useStyles from "../utils/postStyles";
 import ReactMarkdown from "react-markdown";
 import codeBlock from "../utils/codeBlock";
+import useRequest from "../hooks/useRequest";
 
-const Post = () => {
+const Post = ({ postContent, match }) => {
   const classes = useStyles();
+  console.log("매치", match.params.id);
+  console.log(postContent);
+  // console.log("리스트", postContent.category);
+  // console.log("포스트데이터", postData);
+  const [postList, loading, error] = useRequest(
+    `http://localhost:3000/readPostListbyCategory/${postContent.category}`
+  );
+
+  // TODO: loading
+  if (loading) {
+    return (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
+  // TODO: error
+  if (error) {
+    return (
+      <div>
+        <h1>ERROR 404</h1>
+      </div>
+    );
+  }
+  // TODO: when postData is null, return null
+  if (!postList) return null;
+  console.log("내용", postList.data);
+  let data = postList.data.filter(data => "" + data.id === match.params.id);
+  console.log(data);
   return (
     <Fragment>
       <Container>
@@ -27,7 +57,9 @@ const Post = () => {
             />
           </Grid>
           <Grid item xs={12} md={1} className={classes.temp}>
-            <Typography className={classes.user}>정진석</Typography>
+            <Typography className={classes.user}>
+              {data[0].user.nickname}
+            </Typography>
           </Grid>
           <Grid item xs={12} md={1} className={classes.temp}>
             <IconButton className={classes.like} color="secondary">
@@ -38,12 +70,12 @@ const Post = () => {
           <Grid item xs={12} md={2} className={classes.temp}>
             <Grid item className={classes.temp}>
               <Typography className={classes.visit} align="right">
-                조회수 20
+                조회수 {data[0].like_count}
               </Typography>
             </Grid>
             <Grid item className={classes.temp}>
               <Typography className={classes.date} align="right">
-                2019.09.04
+                {data[0].createdAt.slice(0, 10)}
               </Typography>
             </Grid>
           </Grid>
@@ -53,12 +85,12 @@ const Post = () => {
           variant="h3"
           className={classes.title}
         >
-          타이틀이 필요합니다.
+          {data[0].title}
         </Typography>
 
         <ReactMarkdown
           className={classes.markdown}
-          source="# CodeState"
+          source={`# ${postContent.contents}`}
           renderers={{ code: codeBlock }}
         />
       </Container>

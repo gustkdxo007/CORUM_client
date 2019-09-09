@@ -28,7 +28,7 @@ const TempPostList = () => {
       likeCount: 50
     },
     {
-      user: "구일모",
+      user: "정진석",
       title: "CODESTATES DEVELOPER KOO IL MO",
       subTitle: "안녕하세요 코드스테이츠 DJ를 담당하는 구일모입니다.",
       date: "2019-09-01",
@@ -36,7 +36,7 @@ const TempPostList = () => {
       likeCount: 50
     },
     {
-      user: "구일모",
+      user: "한영후",
       title: "CODESTATES DEVELOPER KOO IL MO",
       subTitle: "안녕하세요 코드스테이츠 DJ를 담당하는 구일모입니다.",
       date: "2019-09-01",
@@ -44,7 +44,7 @@ const TempPostList = () => {
       likeCount: 50
     },
     {
-      user: "구일모",
+      user: "이호용",
       title: "CODESTATES DEVELOPER KOO IL MO",
       subTitle: "안녕하세요 코드스테이츠 DJ를 담당하는 구일모입니다.",
       date: "2019-09-01",
@@ -55,7 +55,7 @@ const TempPostList = () => {
   return (
     <div>
       {featuredPosts.map(post => (
-        <Grid item key={post.title} xs={12} md={12}>
+        <Grid item key={post.user} xs={12} md={12}>
           <CardActionArea component="a" href="/postpage/1">
             <Card className={classes.card}>
               <Hidden xsDown>
