@@ -26,10 +26,19 @@ import Footer from "../components/Footer";
 import TempPostList from "../components/TempPostList";
 
 // main
-const Home = () => {
+const Home = ({ match }) => {
   const classes = useStyles();
+  // console.log("start", match);
+  const url = () => {
+    if (match.path === "/") {
+      return "readAllPostList";
+    }
+    if (match.path === "/category/:categoryname") {
+      return `readPostListbyCategory/${match.params.categoryname}`;
+    }
+  };
   const [postData, loading, error] = useRequest(
-    "http://localhost:3000/getAllPosts"
+    `http://localhost:3000/${url()}`
   );
   // TODO: loading
   if (loading) {
@@ -49,35 +58,38 @@ const Home = () => {
   }
   // TODO: when postData is null, return null
   if (!postData) return null;
-  console.log(postData.data);
+  // console.log("데이터", postData.data);
   return (
     <Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
         <Header />
-        <Router>
-          <Banner />
-          <Grid container spacing={8} className={classes.mainGrid}>
-            <Grid item xs={12} md={2} className={classes.asideGrid}>
-              <Category />
-              <Tag />
-            </Grid>
-            <Grid item xs={12} md={9} className={classes.cardGrid}>
+        {/* <Router> */}
+        <Banner />
+        <Grid container spacing={8} className={classes.mainGrid}>
+          <Grid item xs={12} md={2} className={classes.asideGrid}>
+            <Category />
+            <Tag />
+          </Grid>
+          <Grid item xs={12} md={9} className={classes.cardGrid}>
+            <Route
+              exact
+              path="/"
+              render={() => <PostList postData={postData.data} match={match} />}
+            />
+            <Switch>
               <Route
                 exact
-                path="/"
-                render={() => <PostList postData={postData.data} />}
+                path={`/category/${match.params.categoryname}`}
+                render={() => (
+                  <PostList postData={postData.data} match={match} />
+                )}
               />
-              <Switch>
-                <Route
-                  path="/category/:categoryname"
-                  component={TempPostList}
-                />
-                <Route path="/tags/:tagname" component={TempPostList} />
-              </Switch>
-            </Grid>
+              <Route path="/tags/:tagname" component={TempPostList} />
+            </Switch>
           </Grid>
-        </Router>
+        </Grid>
+        {/* </Router> */}
       </Container>
       <Footer />
     </Fragment>

@@ -8,21 +8,30 @@ import Hidden from "@material-ui/core/Hidden";
 import Typography from "@material-ui/core/Typography";
 import useStyles from "../utils/makeStyles";
 
-// createdAt: "2019-09-06T01:34:49.000Z"
-// id: 2
-// like_count: 0
-// subTitle: "말씀을 드려볼까 합니다."
-// title: "코드스테이츠 구일모입니다."
-// updatedAt: "2019-09-06T01:34:57.000Z"
-// user: {nickname: "dddd", userImage: null}
-// visit_count: 1
-const PostList = ({ postData }) => {
+// const postData = [
+//   {
+//     createdAt: "2019-09-06T01:34:49.000Z",
+//     id: 2,
+//     like_count: 0,
+//     subTitle: "말씀을 드려볼까 합니다.",
+//     title: "코드스테이츠 구일모입니다.",
+//     updatedAt: "2019-09-06T01:34:57.000Z",
+//     user: { nickname: "dddd", userImage: null },
+//     visit_count: 1
+//   }
+// ];
+const PostList = ({ postData, match }) => {
+  // console.log("------------", postData);
+  // console.log("----------match", match);
+
+  let url = "/category/post";
   const classes = useStyles();
   return (
     <div>
       {postData.map(post => (
         <Grid item key={post.id} xs={12} md={12}>
-          <CardActionArea component="a" href="/postpage/1">
+          <CardActionArea component="a" href={`${url}/${post.id}`}>
+            {/*{`${url}/${post.id}`}*/}
             <Card className={classes.card}>
               <Hidden xsDown>
                 <Grid item className={classes.cardLeft}>
