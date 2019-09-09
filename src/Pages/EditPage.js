@@ -23,9 +23,20 @@ const EditPage = () => {
   const [categoryName, setCategoryName] = useState({
     category: ""
   });
+  const [contents, setContent] = useState({ contents: "" });
 
-  const { title, subTitle, contents, category, poster } = postData;
-  const classes = useStyles();
+  const handleMarkdown = e => {
+    const { name, value } = e.target;
+    setPostData(oldValue => ({
+      ...oldValue,
+      [name]: value
+    }));
+    setContent(oldValue => ({
+      ...oldValue,
+      [name]: value
+    }));
+  };
+
   const handleTitle = e => {
     const { name, value } = e.target;
     setPostData(oldData => ({
@@ -46,6 +57,8 @@ const EditPage = () => {
     }));
     console.log(categoryName);
   };
+
+  const classes = useStyles();
   return (
     <div className={classes.root}>
       <Container maxWidth="lg">
@@ -89,7 +102,10 @@ const EditPage = () => {
           </Grid>
         </Grid>
         <Grid>
-          <Markdown />
+          <Markdown
+            contents={contents}
+            handleMarkdown={e => handleMarkdown(e)}
+          />
         </Grid>
       </Container>
     </div>
