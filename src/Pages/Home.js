@@ -29,14 +29,16 @@ import axios from "axios";
 // main
 const Home = ({ match }) => {
   const [userInfo, setUserInfo] = useState({
-    info: "", // userId
-    success: false
-  });
+    userId: "",
+    token: ""
+  }); // userId;
+  console.log("카테고리이름", match.params.categoryname);
   const classes = useStyles();
   const url = () => {
     if (match.path === "/") {
       return "readAllPostList";
     }
+
     if (match.path === "/category/:categoryname") {
       return `readPostListbyCategory/${match.params.categoryname}`;
     }
@@ -44,20 +46,19 @@ const Home = ({ match }) => {
   const [postData, loading, error] = useRequest(
     `http://localhost:3001/${url()}`
   );
-
+  console.log("포스트데이터", postData);
   useEffect(() => {
-    const fetchData = async () => {
-      let token = await localStorage.getItem("Authorization");
-      let currentUser = await axios.get(
-        "http://localhost:3001/api/auth/check");
-      console.log(token);
-      console.log(currentUser);
-      setUserInfo({ ...userInfo, currentUser });
-      console.log(userInfo);
-    };
-    fetchData();
+    let userData = JSON.parse(localStorage.getItem("userId"));
+    console.log("나와라", userData.userId);
+    if (userData) {
+      setUserInfo(oldValue => ({
+        ...oldValue,
+        userId: userData.userId,
+        token: userData.token
+      }));
+    }
   }, []);
-  // TODO: loading
+  //  TODO: loading;
   if (loading) {
     return (
       <div>

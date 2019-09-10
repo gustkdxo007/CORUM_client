@@ -20,7 +20,7 @@ const EditPage = ({ history }) => {
     subTitle: "",
     contents: "",
     category: "",
-    poster: "codestates"
+    userId: "codestates"
   });
   const [categoryName, setCategoryName] = useState({
     category: ""
@@ -61,7 +61,15 @@ const EditPage = ({ history }) => {
   };
 
   const handlePost = async () => {
-    await axios.post("http://localhost:3001/createPostHashtag", postData);
+    console.log(postData);
+    let userData = JSON.parse(localStorage.getItem("userId"));
+    console.log("유저", userData.userId);
+    await axios.post("http://localhost:3001/createPostHashtag", {
+      ...postData,
+
+      userId: userData.userId,
+      token: userData.token
+    });
     history.push("/");
   };
 
