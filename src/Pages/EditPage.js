@@ -64,7 +64,7 @@ const EditPage = ({ history }) => {
     console.log(postData);
     let userData = JSON.parse(localStorage.getItem("userId"));
     console.log("유저", userData.userId);
-    await axios.post("http://localhost:3001/createPostHashtag", {
+    await axios.post("http://52.79.228.73:3000/createPostHashtag", {
       ...postData,
 
       userId: userData.userId,

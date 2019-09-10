@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import EditPage from "./Pages/EditPage";
 import PostPage from "./Pages/PostPage";
 import MyPage from "./Pages/MyPage";
+import SignUpPage from "./Pages/SignUpPage";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Switch>
         <Route path="/mypage" component={MyPage} />
         <Route path="/edit" component={EditPage} />
+        <Route path="/signup" component={SignUpPage} />
         <Route exact path="/category/:categoryname" component={Home} />
         <Route path="/category/post/:id" component={PostPage} />
       </Switch>
