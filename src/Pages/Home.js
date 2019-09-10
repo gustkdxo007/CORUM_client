@@ -30,9 +30,8 @@ import axios from "axios";
 const Home = ({ match }) => {
   const [userInfo, setUserInfo] = useState({
     userId: "",
-    token: ""
+    access_token: ""
   }); // userId;
-  console.log("카테고리이름", match.params.categoryname);
   const classes = useStyles();
   const url = () => {
     if (match.path === "/") {
@@ -46,25 +45,18 @@ const Home = ({ match }) => {
   const [postData, loading, error] = useRequest(
     `http://52.79.228.73:3000/${url()}`
   );
-  console.log("포스트데이터", postData);
   useEffect(() => {
     let userData = JSON.parse(localStorage.getItem("userId"));
     if (userData) {
       setUserInfo(oldValue => ({
         ...oldValue,
         userId: userData.userId,
-        token: userData.token
+        access_: userData.access_token
       }));
     }
   }, []);
   //  TODO: loading;
-  if (loading) {
-    return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    );
-  }
+
   // TODO: error
   if (error) {
     return (
@@ -80,7 +72,7 @@ const Home = ({ match }) => {
     <Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header />
+        <Header userId={userInfo.userId} />
         {/* <Router> */}
         <Banner />
         <Grid container spacing={8} className={classes.mainGrid}>

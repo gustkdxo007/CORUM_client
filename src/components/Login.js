@@ -45,7 +45,7 @@ const Login = ({ history }) => {
 
   const handleLogin = async e => {
     let loginData = await axios.post(
-      "http://localhost:3001/api/auth/login",
+      "http://52.79.228.73:3000/api/auth/login",
       inputs,
       {
         headers: {
@@ -55,15 +55,19 @@ const Login = ({ history }) => {
         body: JSON.stringify(inputs)
       }
     );
-    console.log("로그인데이터", loginData);
-    if (!loginData.data.token) return;
+    if (!loginData.data.access_token) {
+      console.log("로그인로그인", loginData);
+      return;
+    }
+
     console.log("로그인데이터", loginData);
     let localData = {
       userId: loginData.data.userId,
-      token: loginData.data.token
+      access_token: loginData.data.access_token
     };
     localStorage.setItem("userId", JSON.stringify(localData));
-    history.push("/mypage");
+    history.push("/");
+    window.location.reload(true);
   };
 
   const classes = useStyles();
