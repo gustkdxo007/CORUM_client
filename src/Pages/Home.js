@@ -44,12 +44,11 @@ const Home = ({ match }) => {
     }
   };
   const [postData, loading, error] = useRequest(
-    `http://localhost:3001/${url()}`
+    `http://52.79.228.73:3000/${url()}`
   );
   console.log("포스트데이터", postData);
   useEffect(() => {
     let userData = JSON.parse(localStorage.getItem("userId"));
-    console.log("나와라", userData.userId);
     if (userData) {
       setUserInfo(oldValue => ({
         ...oldValue,
