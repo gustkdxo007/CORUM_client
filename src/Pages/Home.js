@@ -30,7 +30,7 @@ import axios from "axios";
 const Home = ({ match }) => {
   const [userInfo, setUserInfo] = useState({
     userId: "",
-    token: ""
+    access_token: ""
   }); // userId;
   const classes = useStyles();
   const url = () => {
@@ -51,18 +51,12 @@ const Home = ({ match }) => {
       setUserInfo(oldValue => ({
         ...oldValue,
         userId: userData.userId,
-        token: userData.token
+        access_: userData.access_token
       }));
     }
   }, []);
   //  TODO: loading;
-  if (loading) {
-    return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    );
-  }
+
   // TODO: error
   if (error) {
     return (
@@ -78,7 +72,7 @@ const Home = ({ match }) => {
     <Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header />
+        <Header userId={userInfo.userId} />
         {/* <Router> */}
         <Banner />
         <Grid container spacing={8} className={classes.mainGrid}>

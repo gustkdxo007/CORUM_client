@@ -14,7 +14,7 @@ import IntegrationReactSelect from "../utils/selectHelper";
 import SelectCategory from "../components/EditPage/SelectCategory";
 
 // TODO: Main
-const EditPage = ({ history }) => {
+const EditPage = ({ location, history }) => {
   const [postData, setPostData] = useState({
     title: "",
     subTitle: "",
@@ -65,9 +65,10 @@ const EditPage = ({ history }) => {
       ...postData,
 
       userId: userData.userId,
-      token: userData.token
+      access_token: userData.access_token
     });
-    history.push("/");
+    history.push(`/category/${postData.category}`);
+    window.location.reload(true);
   };
 
   const classes = useStyles();

@@ -11,7 +11,8 @@ function useRequest(url) {
     try {
       setLoading(true); // 로딩중
       const res = await axios.get(url); // 실제 요청
-      setResponse(res); // response 설정
+      setResponse(res);
+      // response 설정
     } catch (e) {
       setError(e); // error 설정
     }
