@@ -21,7 +21,7 @@ const Post = ({ postContent, match }) => {
   // console.log("리스트", postContent.category);
   // console.log("포스트데이터", postData);
   const [postList, loading, error] = useRequest(
-    `http://localhost:3000/readPostListbyCategory/${postContent.category}`
+    `http://52.79.228.73:3000/readPostListbyCategory/${postContent.category}`
   );
 
   // TODO: loading
