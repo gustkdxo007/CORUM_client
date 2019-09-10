@@ -12,7 +12,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import useStyles from "../utils/loginStyles";
-import { Link as RouterLink, Redirect } from "react-router-dom";
+import { Link as RouterLink, withRouter } from "react-router-dom";
 import axios from "axios";
 
 function Copyright() {
@@ -28,7 +28,7 @@ function Copyright() {
   );
 }
 
-const Login = () => {
+const Login = ({ history }) => {
   const [inputs, setInputs] = useState({
     userId: "",
     password: ""
@@ -46,12 +46,24 @@ const Login = () => {
   const handleLogin = async e => {
     let loginData = await axios.post(
       "http://localhost:3001/api/auth/login",
-      inputs
+      inputs,
+      {
+        headers: {
+          "Content-Type": "application/json"
+        },
+        credentials: "include",
+        body: JSON.stringify(inputs)
+      }
     );
+    console.log("로그인데이터", loginData);
     if (!loginData.data.token) return;
-
-    localStorage.setItem("Authorization", loginData.data.token);
-    return <Redirect to="/" />;
+    console.log("로그인데이터", loginData);
+    let localData = {
+      userId: loginData.data.userId,
+      token: loginData.data.token
+    };
+    localStorage.setItem("userId", JSON.stringify(localData));
+    history.push("/mypage");
   };
 
   const classes = useStyles();
@@ -71,7 +83,7 @@ const Login = () => {
             </Typography>
           </Grid>
         </Grid>
-        <form className={classes.form} onSubmit={handleLogin} noValidate>
+        <form className={classes.form} noValidate>
           <TextField
             variant="standard"
             margin="normal"
@@ -113,11 +125,11 @@ const Login = () => {
             </Link>
           </Button>
           <Button
-            type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={handleLogin}
           >
             Sign In
           </Button>
@@ -149,4 +161,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default withRouter(Login);

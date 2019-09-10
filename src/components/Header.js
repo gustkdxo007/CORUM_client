@@ -17,7 +17,6 @@ import LoginBtn from "./LoginBtn";
 
 // main
 const Header = ({ history }) => {
-  console.log(history);
   const classes = useStyles();
   return (
     <div>

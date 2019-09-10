@@ -102,7 +102,7 @@ const MyPage = () => {
           className={classes.textArea}
           type="text"
           name="content"
-          placeHolder="소개를 입력해주세요"
+          placeholder="소개를 입력해주세요"
           // value={content}
           // onChange={handleChange}
         />

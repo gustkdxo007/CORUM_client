@@ -31,11 +31,11 @@ const SelectCategory = ({ categoryName, handleCategory }) => {
           onChange={handleCategory}
           input={<OutlinedInput labelWidth={labelWidth} name="category" />}
         >
-          <MenuItem value={"Developer"}>Developer</MenuItem>
-          <MenuItem value={"Co-project"}>Co-project</MenuItem>
-          <MenuItem value={"Newest IT"}>Newest IT</MenuItem>
-          <MenuItem value={"Hot Tech Issue"}>Hot Tech Issue</MenuItem>
-          <MenuItem value={"My Company"}>My Company</MenuItem>
+          <MenuItem value={"development"}>Development</MenuItem>
+          <MenuItem value={"project"}>Co-project</MenuItem>
+          <MenuItem value={"newestit"}>Newest IT</MenuItem>
+          <MenuItem value={"hottechissue"}>Hot Tech Issue</MenuItem>
+          <MenuItem value={"mycompany"}>My Company</MenuItem>
         </Select>
       </FormControl>
     </div>
