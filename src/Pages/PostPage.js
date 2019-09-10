@@ -10,7 +10,7 @@ import useRequest from "../hooks/useRequest";
 const PostPage = ({ match }) => {
   // console.log("포스트페이지 매치", match);
   const [postData, loading, error] = useRequest(
-    `http://localhost:3000/readPost/${match.params.id}`
+    `http://52.79.228.73:3000/readPost/${match.params.id}`
   );
 
   // TODO: loading

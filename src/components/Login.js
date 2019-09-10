@@ -45,7 +45,7 @@ const Login = ({ history }) => {
 
   const handleLogin = async e => {
     let loginData = await axios.post(
-      "http://localhost:3001/api/auth/login",
+      "http://52.79.228.73:3000/api/auth/login",
       inputs,
       {
         headers: {
