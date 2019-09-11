@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import useRequest from "../hooks/useRequest";
 // ! DO NOT REMOVE MODULES
 /* eslint-disable */
@@ -67,7 +67,7 @@ const Home = ({ match }) => {
   }
   // TODO: when postData is null, return null
   if (!postData) return null;
-  // console.log("데이터", postData.data);
+  console.log("데이터", postData.data);
   return (
     <Fragment>
       <CssBaseline />

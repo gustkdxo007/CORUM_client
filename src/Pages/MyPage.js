@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import {
   Grid,
   Container,
@@ -11,8 +11,62 @@ import {
 } from "@material-ui/core";
 import Header from "../components/MyPage/Header";
 import useStyles from "../utils/myPageStyles";
-const MyPage = () => {
+import axios from "axios";
+
+// fetch();
+// console.log(localData);
+const MyPage = ({ history }) => {
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    nickname: "",
+    gender: "",
+    github_addr: "",
+    contact_email: "",
+    gitsu: null,
+    userImage: null,
+    tech: "",
+    company: "",
+    intro: ""
+  });
   const classes = useStyles();
+
+  const localData = JSON.parse(localStorage.getItem("userId"));
+
+  useEffect(async () => {
+    const res = await axios.post("http://52.79.228.73:3000/readUserInfo", {
+      userId: localData.userId,
+      access_token: localData.access_token
+    });
+    let data = res.data;
+    console.log("서버에서 받는값", data);
+    await setUserInfo(data);
+    console.log("fdsfasfasf", userInfo);
+  }, []);
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setUserInfo(oldValue => ({
+      ...oldValue,
+      [name]: value
+    }));
+    console.log(userInfo);
+  };
+  console.log("뭐가나올까", userInfo);
+  const postUpdate = async () => {
+    console.log("보여줘봐라", {
+      ...userInfo,
+      userId: localData.userId,
+      access_token: localData.access_token
+    });
+    await axios.patch("http://52.79.228.73:3000/updateUserInfo", {
+      ...userInfo,
+      userId: localData.userId,
+      access_token: localData.access_token,
+      userImage: ""
+    });
+    console.log("보낼때", userInfo);
+    history.push("/mypage");
+    window.location.reload(true);
+  };
   return (
     <Fragment>
       <CssBaseline />
@@ -42,8 +96,10 @@ const MyPage = () => {
               color="inherit"
               align="left"
               className={classes.userId}
+              name="userId"
+              onChange={e => handleChange(e)}
             >
-              Geonhwi
+              {userInfo.userId}
             </Typography>
           </Grid>
         </Grid>
@@ -52,59 +108,67 @@ const MyPage = () => {
           className={classes.textField}
           label="기수"
           placeholder="기수를 입력해주세요"
-          value="14"
           margin="normal"
           variant="outlined"
           InputLabelProps={{
             shrink: true
           }}
+          name="gitsu"
+          value={userInfo.gitsu}
+          onChange={e => handleChange(e)}
         />
         <TextField
           id="name"
           className={classes.textField}
           label="이름"
           placeholder="이름을 입력해주세요"
-          value="정건휘"
+          name="nickname"
+          value={userInfo.nickname}
           fullWidth
           margin="normal"
           variant="outlined"
           InputLabelProps={{
             shrink: true
           }}
+          onChange={e => handleChange(e)}
         />
         <TextField
           id="email"
           className={classes.textField}
           label="이메일"
           placeholder="이메일을 입력해주세요"
-          value="g01063962671@gmail.com"
+          value={userInfo.contact_email}
+          name="contact_email"
           fullWidth
           margin="normal"
           variant="outlined"
           InputLabelProps={{
             shrink: true
           }}
+          onChange={e => handleChange(e)}
         />
         <TextField
-          id="phone"
+          id="company"
           className={classes.textField}
-          label="phone"
-          placeholder="전화번호를 입력해주세요"
-          value="010-1234-5678"
+          label="company"
+          placeholder="직장을 입력해주세요"
+          value={userInfo.company}
+          name="company"
           fullWidth
           margin="normal"
           variant="outlined"
           InputLabelProps={{
             shrink: true
           }}
+          onChange={e => handleChange(e)}
         />
         <TextareaAutosize
           className={classes.textArea}
           type="text"
-          name="content"
+          name="intro"
           placeholder="소개를 입력해주세요"
-          // value={content}
-          // onChange={handleChange}
+          value={userInfo.intro}
+          onChange={e => handleChange(e)}
         />
         <Grid container spacing={1}>
           <Grid item xs={12} md={6} align="center">
@@ -112,6 +176,7 @@ const MyPage = () => {
               variant="contained"
               color="primary"
               className={classes.saveButton}
+              onClick={postUpdate}
             >
               저장하기
             </Button>

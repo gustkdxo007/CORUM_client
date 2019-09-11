@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import Header from "../components/Header";
 import { Grid, Container, CssBaseline } from "@material-ui/core";
 import PostBanner from "../components/PostBanner";
