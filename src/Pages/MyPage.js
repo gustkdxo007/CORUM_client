@@ -50,6 +50,11 @@ const MyPage = ({ history }) => {
     }));
     console.log(userInfo);
   };
+
+  const handleClick = () => {
+    history.push("/");
+    window.location.reload(true);
+  };
   console.log("뭐가나올까", userInfo);
   const postUpdate = async () => {
     console.log("보여줘봐라", {
@@ -85,7 +90,7 @@ const MyPage = ({ history }) => {
           <Grid item xs={12} md={2}>
             <Avatar
               alt="user-image"
-              src="https://thumb.velog.io/resize?url=https://images.velog.io/profiles/geonhwi/thumbnails/1556767094.019.jpeg&width=256"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ6hz-n7NfgHufUzvz9-lGcRUxuZoi1jmXPmUx89DuTRwPHaC8"
               className={classes.avatar}
             />
           </Grid>
@@ -186,6 +191,7 @@ const MyPage = ({ history }) => {
               variant="contained"
               color="secondary"
               className={classes.backButton}
+              onClick={handleClick}
             >
               돌아가기
             </Button>
