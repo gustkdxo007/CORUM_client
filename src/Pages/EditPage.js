@@ -30,14 +30,13 @@ const EditPage = ({ location, history }) => {
 
   const [multi, setMulti] = useState(null);
 
-  const handleChangeMulti = async value => {
-    await setMulti(value);
+  const handleChangeMulti = value => {
+    setMulti(value);
     let hash = [];
-    // multi.forEach(v => hash.push(v.value))
     if (multi) {
-      hash = await multi.map(v => v.value);
+      hash = multi.map(v => v.value);
     }
-    await setPostData(oldValue => ({
+    setPostData(oldValue => ({
       ...oldValue,
       hashtag: hash
     }));
