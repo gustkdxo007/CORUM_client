@@ -70,6 +70,10 @@ const Login = ({ history }) => {
     window.location.reload(true);
   };
 
+  const handleSignup = () => {
+    history.push("/signup");
+  };
+
   const classes = useStyles();
   return (
     <Container component="main" maxWidth="xs">
@@ -139,7 +143,11 @@ const Login = ({ history }) => {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Button color="default" className={classes.button}>
+              <Button
+                color="default"
+                className={classes.button}
+                onClick={handleSignup}
+              >
                 회원가입
               </Button>
             </Grid>

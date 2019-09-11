@@ -33,6 +33,7 @@ const useStyles = makeStyles(theme => ({
   },
   user: {
     marginTop: theme.spacing(4),
+    marginLeft: theme.spacing(2),
     fontWeight: "600"
   },
   date: {
@@ -45,7 +46,8 @@ const useStyles = makeStyles(theme => ({
     // marginLeft: theme.spacing(1)
   },
   like: {
-    marginTop: theme.spacing(1.5)
+    marginTop: theme.spacing(1.5),
+    marginLeft: theme.spacing(3)
   },
   title: {
     margin: theme.spacing(2),

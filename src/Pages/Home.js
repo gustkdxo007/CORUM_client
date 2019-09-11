@@ -26,7 +26,8 @@ import Footer from "../components/Footer";
 import TempPostList from "../components/TempPostList";
 
 // main
-const Home = ({ match }) => {
+const Home = ({ match, location }) => {
+  console.log(location.state);
   const [userInfo, setUserInfo] = useState({
     userId: "",
     access_token: ""
@@ -80,7 +81,16 @@ const Home = ({ match }) => {
             <Route
               exact
               path="/"
-              render={() => <PostList postData={postData.data} match={match} />}
+              render={() => (
+                <PostList
+                  postData={
+                    !location.state
+                      ? postData.data.sort((a, b) => b.id - a.id)
+                      : location.state.tagData
+                  }
+                  match={match}
+                />
+              )}
             />
             <Switch>
               <Route

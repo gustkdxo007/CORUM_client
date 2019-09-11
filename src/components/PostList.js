@@ -25,9 +25,7 @@ const PostList = ({ postData, match }) => {
                     <CardMedia
                       className={classes.cardMedia}
                       image={
-                        !post.user.userImage
-                          ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ6hz-n7NfgHufUzvz9-lGcRUxuZoi1jmXPmUx89DuTRwPHaC8"
-                          : post.user.userImage
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ6hz-n7NfgHufUzvz9-lGcRUxuZoi1jmXPmUx89DuTRwPHaC8"
                       }
                       title="Image title"
                     />

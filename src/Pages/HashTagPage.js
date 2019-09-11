@@ -7,9 +7,10 @@ import {
   Typography,
   TextField
 } from "@material-ui/core";
+
 import useStyles from "../utils/tagStyles";
 import Header from "../components/MyPage/Header";
-const HashTagPage = () => {
+const HashTagPage = ({ history }) => {
   const [tagInfo, setTagInfo] = useState([]);
   const LS_DATA = JSON.parse(localStorage.getItem("userId"));
 
@@ -31,10 +32,13 @@ const HashTagPage = () => {
   };
 
   const handleClick = id => {
-    fetchPostListByHashTag(id).then(res => console.log(res));
+    fetchPostListByHashTag(id).then(res =>
+      history.push("/", { tagData: res.data })
+    );
   };
 
   useEffect(() => {
+    console.log(history);
     fetchHashTags();
   }, []);
   const classes = useStyles();
@@ -55,7 +59,6 @@ const HashTagPage = () => {
                     key={tag.id}
                     display="inline"
                     className={classes[tagClassName]}
-                    gutterBottom
                     onClick={() => handleClick(tag.id)}
                   >
                     {tag.name}
