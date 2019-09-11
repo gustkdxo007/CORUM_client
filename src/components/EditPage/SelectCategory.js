@@ -11,7 +11,6 @@ import {
 import useStyles from "../../utils/editStyles";
 const SelectCategory = ({ categoryName, handleCategory }) => {
   const classes = useStyles();
-  // TODO: category hooks
 
   // TODO: category select 윤곽선 넓이 조절
   const [labelWidth, setLabelWidth] = useState(0);

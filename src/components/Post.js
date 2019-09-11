@@ -82,7 +82,7 @@ const Post = ({ postContent, match }) => {
 
         <ReactMarkdown
           className={classes.markdown}
-          source={`# ${postContent.contents}`}
+          source={postContent.contents}
           renderers={{ code: codeBlock }}
         />
       </Container>

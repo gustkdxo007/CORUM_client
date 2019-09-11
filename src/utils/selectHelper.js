@@ -78,14 +78,22 @@ const components = {
 };
 
 // TODO: main function
-export default function IntegrationReactSelect() {
+export default function IntegrationReactSelect({
+  multi,
+  setMulti,
+  handleChangeMulti
+}) {
   const classes = useStyles();
   const theme = useTheme();
-  const [multi, setMulti] = useState(null);
-  
-  const handleChangeMulti = value => {
-    setMulti(value);
-  };
+  // const [multi, setMulti] = useState(null);
+
+  // const handleChangeMulti = value => {
+  //   setMulti(value);
+  //   console.log(value);
+  //   if (multi) {
+  //     console.log(multi);
+  //   }
+  // };
 
   const selectStyles = {
     input: base => ({

@@ -20,12 +20,28 @@ const EditPage = ({ location, history }) => {
     subTitle: "",
     contents: "",
     category: "",
-    userId: "codestates"
+    userId: "codestates",
+    hashtag: null
   });
   const [categoryName, setCategoryName] = useState({
     category: ""
   });
   const [contents, setContent] = useState({ contents: "" });
+
+  const [multi, setMulti] = useState(null);
+
+  const handleChangeMulti = async value => {
+    await setMulti(value);
+    let hash = [];
+    // multi.forEach(v => hash.push(v.value))
+    if (multi) {
+      hash = await multi.map(v => v.value);
+    }
+    await setPostData(oldValue => ({
+      ...oldValue,
+      hashtag: hash
+    }));
+  };
 
   const handleMarkdown = e => {
     const { name, value } = e.target;
@@ -82,7 +98,10 @@ const EditPage = ({ location, history }) => {
               {/* Title */}
               <TextFields handleTitle={e => handleTitle(e)} />
               {/* Tag Select */}
-              <IntegrationReactSelect />
+              <IntegrationReactSelect
+                multi={multi}
+                handleChangeMulti={value => handleChangeMulti(value)}
+              />
             </form>
           </Grid>
           <Grid item xs={12} md={3}>
