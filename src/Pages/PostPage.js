@@ -27,7 +27,7 @@ const PostPage = ({ match }) => {
     <Fragment>
       <Container maxWidth="lg">
         <CssBaseline />
-        <Header userId={LS_DATA.userId} />
+        <Header userId={LS_DATA && LS_DATA.userId} />
         <PostBanner postName={postData.data.category} />
 
         <Grid container spacing={0}>

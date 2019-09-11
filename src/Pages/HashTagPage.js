@@ -46,26 +46,24 @@ const HashTagPage = ({ history }) => {
     <Fragment>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Header userId={LS_DATA.userId} />
+        <Header userId={LS_DATA && LS_DATA.userId} />
         <Grid container className={classes.tagWrapper}>
-          <Grid item xs={12} md={12}>
-            {tagInfo &&
-              tagInfo.tagInfo &&
-              tagInfo.tagInfo.data.map(tag => {
-                if (tag.count > 10) tag.count = 10;
-                const tagClassName = `tag${tag.count}`;
-                return (
-                  <Typography
-                    key={tag.id}
-                    display="inline"
-                    className={classes[tagClassName]}
-                    onClick={() => handleClick(tag.id)}
-                  >
-                    {tag.name}
-                  </Typography>
-                );
-              })}
-          </Grid>
+          {tagInfo &&
+            tagInfo.tagInfo &&
+            tagInfo.tagInfo.data.map(tag => {
+              if (tag.count > 10) tag.count = 10;
+              const tagClassName = `tag${tag.count}`;
+              return (
+                <Typography
+                  key={tag.id}
+                  display="inline"
+                  className={classes[tagClassName]}
+                  onClick={() => handleClick(tag.id)}
+                >
+                  {tag.name}
+                </Typography>
+              );
+            })}
         </Grid>
       </Container>
     </Fragment>
