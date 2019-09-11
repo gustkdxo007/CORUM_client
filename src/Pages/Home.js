@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import useRequest from "../hooks/useRequest";
 // ! DO NOT REMOVE MODULES
 /* eslint-disable */

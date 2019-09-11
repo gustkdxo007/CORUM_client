@@ -11,6 +11,7 @@ function useRequest(url) {
     try {
       setLoading(true); // 로딩중
       const res = await axios.get(url); // 실제 요청
+      console.log("리퀘스트", res);
       setResponse(res);
       // response 설정
     } catch (e) {
