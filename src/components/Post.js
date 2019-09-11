@@ -24,14 +24,6 @@ const Post = ({ postContent, match }) => {
     `http://52.79.228.73:3000/readPostListbyCategory/${postContent.category}`
   );
 
-  // TODO: loading
-  if (loading) {
-    return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    );
-  }
   // TODO: error
   if (error) {
     return (
@@ -70,7 +62,7 @@ const Post = ({ postContent, match }) => {
           <Grid item xs={12} md={2} className={classes.temp}>
             <Grid item className={classes.temp}>
               <Typography className={classes.visit} align="right">
-                조회수 {data[0].like_count}
+                조회수 {data[0].visit_count}
               </Typography>
             </Grid>
             <Grid item className={classes.temp}>

@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Header from "../components/Header";
 import { Grid, Container, CssBaseline } from "@material-ui/core";
 import PostBanner from "../components/PostBanner";
@@ -8,19 +8,11 @@ import Post from "../components/Post";
 import useRequest from "../hooks/useRequest";
 
 const PostPage = ({ match }) => {
-  // console.log("포스트페이지 매치", match);
   const [postData, loading, error] = useRequest(
     `http://52.79.228.73:3000/readPost/${match.params.id}`
   );
+  const LS_DATA = JSON.parse(localStorage.getItem("userId"));
 
-  // TODO: loading
-  if (loading) {
-    return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    );
-  }
   // TODO: error
   if (error) {
     return (
@@ -31,13 +23,12 @@ const PostPage = ({ match }) => {
   }
   // TODO: when postData is null, return null
   if (!postData) return null;
-  // console.log("아이디", postData);
   return (
     <Fragment>
       <Container maxWidth="lg">
         <CssBaseline />
-        <Header />
-        <PostBanner />
+        <Header userId={LS_DATA.userId} />
+        <PostBanner postName={postData.data.category} />
 
         <Grid container spacing={0}>
           <Grid item xs={12} md={2}>
@@ -45,11 +36,7 @@ const PostPage = ({ match }) => {
             <Tag />
           </Grid>
           <Grid item xs={12} md={10}>
-            <Post
-              match={match}
-              postContent={postData.data}
-              // postContent={postContent.data}
-            />
+            <Post match={match} postContent={postData.data} />
           </Grid>
         </Grid>
       </Container>

@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: theme.spacing(2)
   },
   markdown: {
-    border: "1px solid gray",
+    // border: "1px solid lightgray",
     margin: theme.spacing(2),
     padding: theme.spacing(0, 2)
   },

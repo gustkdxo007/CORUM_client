@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import useStyles from "../utils/makeStyles";
 
-const Banner = () => {
+const Banner = ({ postName }) => {
   const classes = useStyles();
   return (
     <Fragment>

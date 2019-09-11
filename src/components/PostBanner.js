@@ -3,8 +3,15 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import useStyles from "../utils/postStyles";
 
-const PostBanner = () => {
+const PostBanner = ({ postName }) => {
   const classes = useStyles();
+  let categoryName = {
+    development: "Development",
+    project: "Co-Project",
+    newestit: "Newest IT",
+    hottechissue: "Hot Tech Issue",
+    mycompany: "My Company"
+  };
   return (
     <Fragment>
       <Paper className={classes.mainFeaturedPost}>
@@ -16,7 +23,7 @@ const PostBanner = () => {
             color="inherit"
             align="center"
           >
-            development
+            {categoryName[postName]}
           </Typography>
         </div>
       </Paper>
