@@ -16,8 +16,6 @@ import useRequest from "../hooks/useRequest";
 
 const Post = ({ postContent, match }) => {
   const classes = useStyles();
-  console.log("매치", match.params.id);
-  console.log(postContent);
   // console.log("리스트", postContent.category);
   // console.log("포스트데이터", postData);
   const [postList, loading, error] = useRequest(
