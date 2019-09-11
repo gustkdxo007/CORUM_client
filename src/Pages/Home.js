@@ -24,10 +24,10 @@ import Tag from "../components/Tag";
 import PostList from "../components/PostList";
 import Footer from "../components/Footer";
 import TempPostList from "../components/TempPostList";
-import axios from "axios";
 
 // main
-const Home = ({ match }) => {
+const Home = ({ match, location }) => {
+  console.log(location.state);
   const [userInfo, setUserInfo] = useState({
     userId: "",
     access_token: ""
@@ -55,8 +55,6 @@ const Home = ({ match }) => {
       }));
     }
   }, []);
-  //  TODO: loading;
-
   // TODO: error
   if (error) {
     return (
@@ -67,7 +65,6 @@ const Home = ({ match }) => {
   }
   // TODO: when postData is null, return null
   if (!postData) return null;
-  console.log("데이터", postData.data);
   return (
     <Fragment>
       <CssBaseline />
@@ -84,14 +81,26 @@ const Home = ({ match }) => {
             <Route
               exact
               path="/"
-              render={() => <PostList postData={postData.data} match={match} />}
+              render={() => (
+                <PostList
+                  postData={
+                    !location.state
+                      ? postData.data.sort((a, b) => b.id - a.id)
+                      : location.state.tagData
+                  }
+                  match={match}
+                />
+              )}
             />
             <Switch>
               <Route
                 exact
                 path={`/category/${match.params.categoryname}`}
                 render={() => (
-                  <PostList postData={postData.data} match={match} />
+                  <PostList
+                    postData={postData.data.sort((a, b) => b.id - a.id)}
+                    match={match}
+                  />
                 )}
               />
               <Route path="/tags/:tagname" component={TempPostList} />

@@ -42,7 +42,7 @@ const Post = ({ postContent, match }) => {
           <Grid item xs={12} md={1} className={classes.temp}>
             <Avatar
               alt="Remy Sharp"
-              src="https://thumbs.dreamstime.com/b/default-male-avatar-profile-picture-icon-grey-man-photo-placeholder-vector-illustration-88414414.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ6hz-n7NfgHufUzvz9-lGcRUxuZoi1jmXPmUx89DuTRwPHaC8"
               className={classes.avatar}
             />
           </Grid>
@@ -80,7 +80,7 @@ const Post = ({ postContent, match }) => {
 
         <ReactMarkdown
           className={classes.markdown}
-          source={`# ${postContent.contents}`}
+          source={postContent.contents}
           renderers={{ code: codeBlock }}
         />
       </Container>

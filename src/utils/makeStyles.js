@@ -124,6 +124,14 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.grey[600],
     marginTop: theme.spacing(4),
     padding: theme.spacing(2, 0)
+  },
+  allTagItem: {
+    color: "black",
+    fontSize: "1.5rem",
+    fontWeight: 600,
+    textAlign: "center",
+    marginTop: theme.spacing(3),
+    borderRadius: "20px"
   }
 }));
 
