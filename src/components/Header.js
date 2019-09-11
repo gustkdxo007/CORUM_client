@@ -57,12 +57,13 @@ const Header = ({ history, userId }) => {
         <IconButton>
           <Search />
         </IconButton>
-
-        <Link component={RouterLink} to="/edit">
-          <IconButton>
-            <BorderColor />
-          </IconButton>
-        </Link>
+        {userId && (
+          <Link component={RouterLink} to="/edit">
+            <IconButton>
+              <BorderColor />
+            </IconButton>
+          </Link>
+        )}
 
         {!userId && <LoginBtn />}
         {!userId && (
