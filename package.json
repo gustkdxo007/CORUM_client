@@ -2,7 +2,14 @@
   "name": "corum-client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://52.79.228.73:3000",
   "dependencies": {
+    "@material-ui/core": "^4.4.0",
+    "@material-ui/icons": "^4.2.1",
+    "axios": "^0.19.0",
+    "clsx": "^1.0.4",
+    "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1"

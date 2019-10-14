@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import Home from "./Pages/Home";
+import EditPage from "./Pages/EditPage";
+import PostPage from "./Pages/PostPage";
+import MyPage from "./Pages/MyPage";
+import SignUpPage from "./Pages/SignUpPage";
+import HashTagPage from "./Pages/HashTagPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Route exact path="/" component={Home} />
+      <Switch>
+        <Route path="/alltags" component={HashTagPage} />
+        <Route path="/mypage" component={MyPage} />
+        <Route path="/edit" component={EditPage} />
+        <Route path="/signup" component={SignUpPage} />
+        <Route exact path="/category/:categoryname" component={Home} />
+        <Route path="/category/post/:id" component={PostPage} />
+      </Switch>
     </div>
   );
 }
